@@ -1,0 +1,159 @@
+$phone-width: 319px;
+$tablet-portrait: 768px;
+$tablet-landscape: 1025px;
+$laptop-width: 1201px;
+$desktop-1366-width: 1367px;
+$desktop-1440-width: 1441px;
+$desktop-1280-width: 1281px;
+
+$acriq-orange: #F36B21;
+$acriq-darkgray: #72787D;
+$acriq-lightgray: #A8AEB5;
+$font-primary: 'Bebas Neue';
+$font-secondary: 'Roboto';
+
+@mixin phone {
+	@media (min-width: #{$phone-width}) and (max-width: #{$tablet-portrait - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-portrait {
+    @media (min-width: #{$tablet-portrait}) and (max-width: #{$tablet-landscape - 1px}) and (orientation : portrait) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @media (min-width: #{$tablet-portrait}) and (max-width: #{$tablet-landscape - 1px}) and (orientation : landscape) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: #{$laptop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-1366 {
+    @media (max-width: #{$desktop-1366-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-1440 {
+    @media (max-width: #{$desktop-1440-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-1280 {
+    @media (max-width: #{$desktop-1280-width - 1px}) {
+        @content;
+    }
+}
+
+@font-face {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: 100;
+    src: url('fonts/BebasNeue Thin.otf');
+}
+@font-face {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: 300;
+    src: url('fonts/BebasNeue Light.otf');
+}
+@font-face {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: 500;
+    src: url('fonts/BebasNeue Regular.otf');
+}
+@font-face {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/BebasNeue Bold.otf');
+}
+@font-face {
+    font-family: Bebas Neue;
+    font-style: normal;
+    font-weight: 900;
+    src: url('fonts/BebasNeue Book.otf');
+}
+
+%bfaf {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+body {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-primary;
+    }
+    p {
+        font-family: $font-secondary;
+    }
+    img {
+        vertical-align: middle;
+    }
+    .mobile-only {
+        display: none !important;
+
+        @include phone {
+            display: block !important;
+        }
+    }
+	#page-wrapper {
+		.site-header {
+			.full-container {
+				padding: 0;
+			}
+			.custom-logo {
+				max-width: 180px;
+				height: auto;
+			}
+
+			// MENU PRINCIPAL
+			.main-navigation {
+				background: $acriq-orange;
+
+				.menu-principal-container {
+					#menu-principal {
+						.menu-item {
+							padding-top: 20px;
+							padding-bottom: 20px;
+
+							&:last-of-type {
+								a {
+									&:after {
+										content: none;
+									}
+								}
+							}
+							a {
+								padding: 5px 20px;
+								text-transform: uppercase;
+								color: #fff;
+								font-weight: 700;
+								position: relative;
+
+								&:after {
+									@extend %bfaf;
+									border-right: 2px solid $acriq-lightgray;
+									top: 0;
+									right: 0;
+									height: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
