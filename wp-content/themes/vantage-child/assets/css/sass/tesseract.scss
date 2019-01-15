@@ -8,7 +8,7 @@ $desktop-1280-width: 1281px;
 
 $acriq-orange: #F36B21;
 $acriq-darkgray: #72787D;
-$acriq-lightgray: #A8AEB5;
+$acriq-lightgray: #D1D2D4;
 $font-primary: 'Bebas Neue';
 $font-secondary: 'Roboto';
 
@@ -92,11 +92,14 @@ $font-secondary: 'Roboto';
 }
 
 body {
+	background-color: #E8EAEE;
+
     h1, h2, h3, h4, h5, h6 {
         font-family: $font-primary;
     }
     p {
         font-family: $font-secondary;
+		font-size: 16px;
     }
     img {
         vertical-align: middle;
@@ -108,6 +111,24 @@ body {
             display: block !important;
         }
     }
+	.hidden {
+		display: none !important;
+	}
+	.col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+		float: left;
+	}
+	.darkgray-bg {
+		background-color: $acriq-darkgray !important;
+	}
+	.lightgray-bg {
+		background-color: $acriq-lightgray !important;
+	}
+	.orange-bg {
+		background-color: $acriq-orange !important;
+	}
+	.white-text {
+		color: #fff !important;
+	}
 	#page-wrapper {
 		.site-header {
 			.full-container {
@@ -122,6 +143,9 @@ body {
 			.main-navigation {
 				background: $acriq-orange;
 
+				.container {
+					position: relative;
+				}
 				.menu-principal-container {
 					#menu-principal {
 						.menu-item {
@@ -133,6 +157,12 @@ body {
 									&:after {
 										content: none;
 									}
+								}
+							}
+							&:hover {
+								a {
+									background: transparent;
+									color: $acriq-lightgray;
 								}
 							}
 							a {
@@ -151,6 +181,238 @@ body {
 								}
 							}
 						}
+					}
+				}
+				#search-icon {
+					#search-icon-icon {
+						background-color: $acriq-orange;
+
+						&:hover {
+							.vantage-icon-search {
+								color: $acriq-lightgray;
+							}
+						}
+						.vantage-icon-search {
+							color: #fff;
+							transition: all ease 0.4s;
+						}
+					}
+				}
+			}
+			.header-meta {
+				display: flex;
+				align-items: center;
+
+				.header-section {
+					display: flex;
+					padding: 0 30px;
+
+					img {
+						width: 40px;
+					}
+					a {
+						color: $acriq-darkgray;
+						font-size: 18px;
+						font-weight: 700;
+					}
+					&.social-medias {
+						a {
+							margin: 0 4px;
+						}
+					}
+				}
+			}
+		}
+
+		#main {
+			padding-left: 0;
+			padding-right: 0;
+
+			#primary {
+				width: 100%;
+			}
+			.section-wrapper {
+				padding: 60px 0;
+
+				&.with-bg-image {
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center;
+					position: relative;
+
+					&.to-right {
+						&:before {
+							background: linear-gradient(to right, transparent 5%, #fff 90%);
+						}
+					}
+					&:before {
+						@extend %bfaf;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						background: linear-gradient(to left, transparent 5%, #fff 90%);
+					}
+				}
+				.left-box {
+
+				}
+				.right-box {
+					.lightgray-bg {
+						padding: 25px 30px;
+
+						p {
+							margin: 0;
+						}
+					}
+				}
+				&.to-right {
+					.meta-content {
+						float: right;
+						text-align: right;
+					}
+				}
+				.item {
+					display: flex;
+					align-items: center;
+					margin: 25px 0;
+
+					@include phone {
+						flex-direction: column;
+					}
+					.item-img {
+						width: 300px;
+						height: 100%;
+
+						img {
+							height: 100%;
+						}
+					}
+					.item-content {
+						padding: 0 20px;
+
+						.item-title {
+							margin: 0 0 10px;
+							font-size: 36px;
+						}
+						.item-body {
+							margin: 0;
+						}
+					}
+				}
+				.meta-content {
+					.meta-title {
+						font-size: 60px;
+						margin: 0;
+					}
+				}
+				.acriq-logo {
+					width: 200px;
+					display: block;
+					margin: 0 auto;
+				}
+				.main-btn {
+					text-transform: uppercase;
+					color: #fff;
+					padding: 10px 30px;
+					border-radius: 50px;
+					display: inline-flex;
+					font-size: 16px;
+				}
+				.section-title {
+					font-size: 72px;
+					text-align: center;
+					margin: 0;
+					line-height: 65px;
+
+					span {
+						display: block;
+						font-size: 54px;
+					}
+				}
+				&#infos {
+					padding: 0;
+				}
+				&#orcamento {
+					padding: 30px 0;
+
+					.container {
+						display: flex;
+						align-items: center;
+
+						@include phone {
+							flex-direction: column;
+						}
+					}
+					.main-btn {
+						border: none;
+						outline: none;
+						box-shadow: none;
+						text-transform: uppercase;
+						color: #fff;
+						border-radius: 50px;
+					}
+					.frm_fields_container {
+						display: flex;
+						align-items: center;
+
+						@include phone {
+							flex-direction: column;
+							margin-top: 30px;
+						}
+						.form-field {
+							margin: 0 15px;
+							width: 280px;
+
+							@include phone {
+								margin: 8px 0;
+							}
+							input {
+								border-radius: 50px;
+								height: 45px;
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		#footer {
+			background-color: #fff;
+			padding: 30px 0;
+
+			p {
+				margin: 0;
+			}
+			#footer-widgets-custom {
+				display: flex;
+
+				.widget {
+					-ms-flex: 0 0 25%;
+					flex: 0 0 25%;
+					max-width: 25%;
+					float: left;
+					position: relative;
+				    width: 100%;
+				    min-height: 1px;
+				    padding-right: 15px;
+				    padding-left: 15px;
+
+					ul {
+						list-style: none;
+						padding-left: 0;
+						margin-left: 0;
+
+						li {
+							a {
+								color: #000;
+								font-size: 16px;
+							}
+						}
+					}
+					.widget-title {
+						font-size: 22px;
 					}
 				}
 			}
