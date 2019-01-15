@@ -18,8 +18,8 @@
  * @package WordPress
  */
 
-// define('WP_HOME','http://35.164.109.138');
-// define('WP_SITEURL','http://35.164.109.138');
+define('WP_HOME','http://35.164.109.138');
+define('WP_SITEURL','http://35.164.109.138');
 
 // ** Configurações do MySQL - Você pode pegar estas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
